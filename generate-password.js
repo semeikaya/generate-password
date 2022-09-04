@@ -45,3 +45,4 @@ function generatePassword(length, string, num) {
 }
 console.log(generatePassword(1, 'hard', 2));
 
+// end
