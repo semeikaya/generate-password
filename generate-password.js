@@ -6,68 +6,56 @@ function generatePassword(length, string, num) {
     const pass2 = digits + alphabet
     let newPassword = '';
     let newPassword2 = [];
-    let newPassword3 = ''
-
-
     if (string === 'easy') {
         if (typeof num === 'number') {
             for (let i = 0; i < num; i++) {
-                for (let i = 0; i < length; i++) {
+                for (let z = 0; z < length; z++) {
                     newPassword += alphabet[Math.floor(Math.random() * alphabet.length)];
                 }
-                
-                newPassword3 = newPassword.slice (- (newPassword.length / (i + 1)))
-                for (let i = 0; i < length; i++) {
-                    if (newPassword2.indexOf(newPassword3) === -1) {
-                        break;
-                    }
-                    newPassword += alphabet[Math.floor(Math.random() * alphabet.length)];
+                if (newPassword2.indexOf(newPassword) !== -1) {
+                    i--
+                } else {
+                    newPassword2.push(newPassword)
+                    newPassword = ''
                 }
-                newPassword2.push(newPassword3)
             }
             return newPassword2
         } else {
             for (let i = 0; i < length; i++) {
-                newPassword += all[Math.floor(Math.random() * all.length)];
+                newPassword += alphabet[Math.floor(Math.random() * alphabet.length)];
             }
         }
     } else if (string === 'medium') {
         if (typeof num === 'number') {
             for (let i = 0; i < num; i++) {
-                for (let i = 0; i < length; i++) {
+                for (let z = 0; z < length; z++) {
                     newPassword += pass2[Math.floor(Math.random() * pass2.length)];
                 }
-                
-                newPassword3 = newPassword.slice (- (newPassword.length / (i + 1)))
-                for (let i = 0; i < length; i++) {
-                    if (newPassword2.indexOf(newPassword3) === -1) {
-                        break;
-                    }
-                    newPassword += pass2[Math.floor(Math.random() * pass2.length)];
+                if (newPassword2.indexOf(newPassword) !== -1) {
+                    i--
+                } else {
+                    newPassword2.push(newPassword)
+                    newPassword = ''
                 }
-                newPassword2.push(newPassword3)
             }
             return newPassword2
         } else {
             for (let i = 0; i < length; i++) {
-                newPassword += all[Math.floor(Math.random() * all.length)];
+                newPassword += pass2[Math.floor(Math.random() * pass2.length)];
             }
         }
     } else if (string === 'hard') {
         if (typeof num === 'number') {
             for (let i = 0; i < num; i++) {
-                for (let i = 0; i < length; i++) {
+                for (let z = 0; z < length; z++) {
                     newPassword += all[Math.floor(Math.random() * all.length)];
                 }
-                
-                newPassword3 = newPassword.slice (- (newPassword.length / (i + 1)))
-                for (let i = 0; i < length;) {
-                    if (newPassword2.indexOf(newPassword3) !== newPassword.slice (- (newPassword.length / (i + 1)))) {
-                        break;
-                    }
-                    newPassword += all[Math.floor(Math.random() * all.length)];
+                if (newPassword2.indexOf(newPassword) !== -1) {
+                    i--
+                } else {
+                    newPassword2.push(newPassword)
+                    newPassword = ''
                 }
-                newPassword2.push(newPassword3)
             }
             return newPassword2
         } else {
@@ -75,10 +63,9 @@ function generatePassword(length, string, num) {
                 newPassword += all[Math.floor(Math.random() * all.length)];
             }
         }
-
     }
     return newPassword;
 }
-console.log(generatePassword(1, 'easy', 2));
+console.log(generatePassword(1, 'hard'));
 
 // end
