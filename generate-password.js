@@ -10,12 +10,48 @@ function generatePassword(length, string, num) {
 
 
     if (string === 'easy') {
-        for (let i = 0; i < length; i++) {
-            newPassword += alphabet[Math.floor(Math.random() * alphabet.length)];
+        if (typeof num === 'number') {
+            for (let i = 0; i < num; i++) {
+                for (let i = 0; i < length; i++) {
+                    newPassword += alphabet[Math.floor(Math.random() * alphabet.length)];
+                }
+                
+                newPassword3 = newPassword.slice (- (newPassword.length / (i + 1)))
+                for (let i = 0; i < length; i++) {
+                    if (newPassword2.indexOf(newPassword3) === -1) {
+                        break;
+                    }
+                    newPassword += alphabet[Math.floor(Math.random() * alphabet.length)];
+                }
+                newPassword2.push(newPassword3)
+            }
+            return newPassword2
+        } else {
+            for (let i = 0; i < length; i++) {
+                newPassword += all[Math.floor(Math.random() * all.length)];
+            }
         }
     } else if (string === 'medium') {
-        for (let i = 0; i < length; i++) {
-            newPassword += pass2[Math.floor(Math.random() * pass2.length)];
+        if (typeof num === 'number') {
+            for (let i = 0; i < num; i++) {
+                for (let i = 0; i < length; i++) {
+                    newPassword += pass2[Math.floor(Math.random() * pass2.length)];
+                }
+                
+                newPassword3 = newPassword.slice (- (newPassword.length / (i + 1)))
+                for (let i = 0; i < length; i++) {
+                    if (newPassword2.indexOf(newPassword3) === -1) {
+                        break;
+                    }
+                    newPassword += pass2[Math.floor(Math.random() * pass2.length)];
+                }
+                newPassword2.push(newPassword3)
+            }
+            return newPassword2
+        } else {
+            for (let i = 0; i < length; i++) {
+                newPassword += all[Math.floor(Math.random() * all.length)];
+            }
         }
     } else if (string === 'hard') {
         if (typeof num === 'number') {
@@ -25,8 +61,8 @@ function generatePassword(length, string, num) {
                 }
                 
                 newPassword3 = newPassword.slice (- (newPassword.length / (i + 1)))
-                for (let i = 0; i < length; i++) {
-                    if (newPassword2.indexOf(newPassword3) === -1) {
+                for (let i = 0; i < length;) {
+                    if (newPassword2.indexOf(newPassword3) !== newPassword.slice (- (newPassword.length / (i + 1)))) {
                         break;
                     }
                     newPassword += all[Math.floor(Math.random() * all.length)];
@@ -43,6 +79,6 @@ function generatePassword(length, string, num) {
     }
     return newPassword;
 }
-console.log(generatePassword(1, 'hard', 2));
+console.log(generatePassword(1, 'easy', 2));
 
 // end
