@@ -14,6 +14,7 @@ function generatePassword(length, string, num) {
                 }
                 if (newPassword2.indexOf(newPassword) !== -1) {
                     i--
+                    newPassword = ''
                 } else {
                     newPassword2.push(newPassword)
                     newPassword = ''
@@ -33,6 +34,7 @@ function generatePassword(length, string, num) {
                 }
                 if (newPassword2.indexOf(newPassword) !== -1) {
                     i--
+                    newPassword = ''
                 } else {
                     newPassword2.push(newPassword)
                     newPassword = ''
@@ -52,6 +54,7 @@ function generatePassword(length, string, num) {
                 }
                 if (newPassword2.indexOf(newPassword) !== -1) {
                     i--
+                    newPassword = ''
                 } else {
                     newPassword2.push(newPassword)
                     newPassword = ''
@@ -66,6 +69,6 @@ function generatePassword(length, string, num) {
     }
     return newPassword;
 }
-console.log(generatePassword(1, 'hard'));
+console.log(generatePassword(1, 'easy', 2));
 
 // end
